@@ -1,9 +1,25 @@
-import { View, Text } from 'react-native';
+import { Text, StyleSheet } from 'react-native';
+import { LinearGradient } from 'expo-linear-gradient';
 
 export default function WorkoutsScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text className="text-orange-500">Workouts</Text>
-    </View>
+    <LinearGradient
+      colors={['#2D2D2D', '#272727', '#212121']}
+      locations={[0, 0.3, 1]}
+      style={styles.gradient}>
+      <Text style={styles.text}>Workouts</Text>
+    </LinearGradient>
   );
 }
+
+const styles = StyleSheet.create({
+  gradient: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  text: {
+    color: '#F5F5F7',
+    fontSize: 18,
+  },
+});
