@@ -4,6 +4,7 @@ import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '.';
 import { HeaderButton } from '../components/HeaderButton';
 import { TabBarIcon } from '../components/TabBarIcon';
+import { Image } from 'react-native';
 import One from '../screens/one';
 import Two from '../screens/two';
 
@@ -22,7 +23,15 @@ export default function TabLayout({ navigation }: Props) {
         component={One}
         options={{
           title: 'Tab One',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          //tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ size, focused, color }) => {
+            return (
+              <Image
+                style={{ width: size, height: size }}
+                source={require('../assets/icons/todo.png')}
+              />
+            );
+          },
           headerRight: () => <HeaderButton onPress={() => navigation.navigate('Modal')} />,
         }}
       />
@@ -31,7 +40,14 @@ export default function TabLayout({ navigation }: Props) {
         component={Two}
         options={{
           title: 'Tab Two',
-          tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ size, focused, color }) => {
+            return (
+              <Image
+                style={{ width: size, height: size }}
+                source={require('../assets/icons/todo.png')}
+              />
+            );
+          },
         }}
       />
     </Tab.Navigator>
