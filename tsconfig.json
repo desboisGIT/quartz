@@ -6,7 +6,16 @@
 
     "baseUrl": ".",
     "paths": {
-      "~/*": ["src/*"]
+      "~/*": ["src/*"],
+      "@icons/*": [
+        "components/icons/*"
+      ],
+      "@components/*": [
+        "components/*"
+      ],
+      "@screens/*": [
+        "screens/*"
+      ],
     }
   }
 }

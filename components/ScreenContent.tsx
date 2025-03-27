@@ -1,6 +1,9 @@
 import { Text, View } from 'react-native';
 import { EditScreenInfo } from './EditScreenInfo';
-import SvgComponent from './SvgComponent';
+import TodoIcon from './icons/TodoIcon';
+import WorkoutIcon from './icons/WorkoutIcon';
+import NotesIcon from './icons/NoteIcon';
+import StatsIcon from './icons/StatsIcon';
 
 type ScreenContentProps = {
   title: string;
@@ -13,7 +16,8 @@ export const ScreenContent = ({ title, path, children }: ScreenContentProps) => 
     <View className={styles.container}>
       <Text className={styles.title}>{title}</Text>
       <View className={styles.separator} />
-      <SvgComponent />
+      {/*<SvgComponent />*/}
+      <TodoIcon width={'50%'} height={'50%'} color="#ffffff" />
       <EditScreenInfo path={path} />
       {children}
     </View>

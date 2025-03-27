@@ -1,12 +1,19 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StackScreenProps } from '@react-navigation/stack';
-
 import { RootStackParamList } from '.';
 import { HeaderButton } from '../components/HeaderButton';
-import { TabBarIcon } from '../components/TabBarIcon';
-import { Image } from 'react-native';
-import One from '../screens/one';
-import Two from '../screens/two';
+
+/* ################# ICONS ################# */
+import WorkoutIcon from '@icons/WorkoutIcon';
+import TodoIcon from '@icons/TodoIcon';
+import NotesIcon from '@icons/NoteIcon';
+import StatsIcon from '@icons/StatsIcon';
+
+/* ################# SCREENS ################# */
+import TodoScreen from '@screens/TodoScreen';
+import NotesScreen from '@screens/NotesScreen';
+import WorkoutsScreen from '@screens/WorkoutsScreen';
+import StatsScreen from '@screens/StatsScreen';
 
 const Tab = createBottomTabNavigator();
 
@@ -19,35 +26,59 @@ export default function TabLayout({ navigation }: Props) {
         tabBarActiveTintColor: 'black',
       }}>
       <Tab.Screen
-        name="One"
-        component={One}
+        name="todo"
+        component={TodoScreen}
         options={{
-          title: 'Tab One',
+          tabBarLabel: () => {
+            return null;
+          },
           //tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
           tabBarIcon: ({ size, focused, color }) => {
-            return (
-              <Image
-                style={{ width: size, height: size }}
-                source={require('../assets/icons/todo.png')}
-              />
-            );
+            return <TodoIcon width={'100%'} height={'100%'} color={color} />;
           },
           headerRight: () => <HeaderButton onPress={() => navigation.navigate('Modal')} />,
         }}
       />
       <Tab.Screen
-        name="Two"
-        component={Two}
+        name="notes"
+        component={NotesScreen}
         options={{
-          title: 'Tab Two',
-          tabBarIcon: ({ size, focused, color }) => {
-            return (
-              <Image
-                style={{ width: size, height: size }}
-                source={require('../assets/icons/todo.png')}
-              />
-            );
+          tabBarLabel: () => {
+            return null;
           },
+          //tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ size, focused, color }) => {
+            return <NotesIcon width={'100%'} height={'100%'} color={color} />;
+          },
+          headerRight: () => <HeaderButton onPress={() => navigation.navigate('Modal')} />,
+        }}
+      />
+      <Tab.Screen
+        name="workouts"
+        component={WorkoutsScreen}
+        options={{
+          tabBarLabel: () => {
+            return null;
+          },
+          //tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ size, focused, color }) => {
+            return <WorkoutIcon width={'100%'} height={'100%'} color={color} />;
+          },
+          headerRight: () => <HeaderButton onPress={() => navigation.navigate('Modal')} />,
+        }}
+      />
+      <Tab.Screen
+        name="stats"
+        component={StatsScreen}
+        options={{
+          tabBarLabel: () => {
+            return null;
+          },
+          //tabBarIcon: ({ color }) => <TabBarIcon name="code" color={color} />,
+          tabBarIcon: ({ size, focused, color }) => {
+            return <StatsIcon width={'100%'} height={'100%'} color={color} />;
+          },
+          headerRight: () => <HeaderButton onPress={() => navigation.navigate('Modal')} />,
         }}
       />
     </Tab.Navigator>
