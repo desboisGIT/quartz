@@ -1,21 +1,17 @@
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import { StackScreenProps } from '@react-navigation/stack';
 import { RootStackParamList } from '.';
-import { HeaderButton } from '../components/HeaderButton';
 import { View } from 'react-native';
 
 /* ################# ICONS ################# */
-import WorkoutIcon from '@icons/WorkoutIcon';
-import TodoIcon from '@icons/TodoIcon';
-import NotesIcon from '@icons/NoteIcon';
-import StatsIcon from '@icons/StatsIcon';
+import { NotesIcon, StatsIcon, TodoIcon, WorkoutIcon } from '@components/ui/Icon';
 
 /* ################# SCREENS ################# */
 import TodoScreen from '@screens/TodoScreen';
 import NotesScreen from '@screens/NotesScreen';
 import WorkoutsScreen from '@screens/WorkoutsScreen';
 import StatsScreen from '@screens/StatsScreen';
-import Header from '@components/Header';
+import Header from '@components/layout/Header';
 
 const Tab = createBottomTabNavigator();
 
@@ -27,7 +23,7 @@ export default function TabLayout({ navigation }: Props) {
       screenOptions={{
         tabBarActiveTintColor: '#F5F5F7', //light-main-1
         tabBarInactiveTintColor: '#A4A4A4', //gray-main-1
-        tabBarBackground: () => <View className="bg-dark-main-3 flex-1" />,
+        tabBarBackground: () => <View className="flex-1 bg-dark-main-3" />,
         tabBarStyle: {
           backgroundColor: '#1C1C1C', // dark-main-3
           height: 91,

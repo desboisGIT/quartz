@@ -1,6 +1,6 @@
 import React from 'react';
 import { View, Text } from 'react-native';
-import { HeaderButton } from './HeaderButton';
+import { HeaderButton } from '@components/navigation/HeaderButton';
 
 type HeaderProps = {
   pageTitle: string;
