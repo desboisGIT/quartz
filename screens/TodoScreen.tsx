@@ -19,10 +19,12 @@ export default function TodoScreen() {
     <Task
       task={{ id: 1, title: 'Task 1', completed: false }}
       onPress={() => {}}
-      onLongPress={() => {}}
+      onConfirm={() => {
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
+      }}
       onDelete={() => {}}
       onComplete={() => {
-        Haptics.notificationAsync(Haptics.NotificationFeedbackType.Success);
+        Haptics.impactAsync(Haptics.ImpactFeedbackStyle.Light);
       }}
     />
   );
