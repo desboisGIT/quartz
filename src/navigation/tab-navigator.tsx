@@ -4,14 +4,14 @@ import { RootStackParamList } from '.';
 import { View } from 'react-native';
 
 /* ################# ICONS ################# */
-import { NotesIcon, StatsIcon, TodoIcon, WorkoutIcon } from '@components/ui/Icon';
+import { NotesIcon, StatsIcon, TodoIcon, WorkoutIcon } from '~/components/ui/Icon';
 
 /* ################# SCREENS ################# */
-import TodoScreen from '@screens/TodoScreen';
-import NotesScreen from '@screens/NotesScreen';
-import WorkoutsScreen from '@screens/WorkoutsScreen';
-import StatsScreen from '@screens/StatsScreen';
-import Header from '@components/layout/Header';
+import TodoScreen from '~/screens/TodoScreen';
+import NotesScreen from '~/screens/NotesScreen';
+import WorkoutsScreen from '~/screens/WorkoutsScreen';
+import StatsScreen from '~/screens/StatsScreen';
+import Header from '~/components/layout/Header';
 
 const Tab = createBottomTabNavigator();
 

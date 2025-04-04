@@ -8,13 +8,13 @@
     "paths": {
       "~/*": ["src/*"],
       "@icons/*": [
-        "components/icons/*"
+        "src/components/icons/*"
       ],
       "@components/*": [
-        "components/*"
+        "src/components/*"
       ],
       "@screens/*": [
-        "screens/*"
+        "src/screens/*"
       ],
     }
   }

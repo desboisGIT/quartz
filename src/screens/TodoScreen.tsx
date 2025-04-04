@@ -1,8 +1,8 @@
 import { Text, Button, View, StyleSheet, ScrollView } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
-import { useCounterStore } from 'store/store';
-import Task from '@components/todoScreen/Task';
-import CustomSafeArea from '@components/utils/CustomSafeArea';
+import { useCounterStore } from '~/store/store';
+import Task from '~/components/todoScreen/Task';
+import CustomSafeArea from '~/components/utils/CustomSafeArea';
 import * as Haptics from 'expo-haptics';
 
 export default function TodoScreen() {

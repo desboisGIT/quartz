@@ -1,6 +1,6 @@
 import { Text, View } from 'react-native';
 import { EditScreenInfo } from './EditScreenInfo';
-import { NotesIcon, StatsIcon, TodoIcon, WorkoutIcon } from '@components/ui/Icon';
+import { NotesIcon, StatsIcon, TodoIcon, WorkoutIcon } from '~/components/ui/Icon';
 
 type ScreenContentProps = {
   title: string;
