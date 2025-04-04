@@ -11,14 +11,17 @@ import Animated, {
 
 interface taskProps {
   task: {
-    id: number;
     title: string;
-    completed: boolean;
+    discipline: number;
+    consistency: number;
+    completitions: number;
+    isDone: boolean;
+    uuid: string;
   };
-  onPress: (id: number) => void;
+  onPress: (uuid: string) => void;
   onConfirm: () => void;
-  onDelete: (id: number) => void;
-  onComplete: (id: number) => void;
+  onDelete: (uuid: string) => void;
+  onComplete: (uuid: string) => void;
 }
 
 export default function Task({ task, onPress, onConfirm, onDelete, onComplete }: taskProps) {
@@ -67,6 +70,12 @@ export default function Task({ task, onPress, onConfirm, onDelete, onComplete }:
     .onFinalize(() => {
       if (offset.value < DELETE_THRESHOLD) {
         offset.value = withSpring(DELETE_THRESHOLD, springConfig);
+        if (task.uuid) {
+          //onDelete(task.uuid);
+          runOnJS(onDelete)(task.uuid);
+        } else {
+          console.error('Task UUID is undefined');
+        }
       } else if (offset.value > COMPLETE_THRESHOLD) {
         offset.value = withSpring(COMPLETE_OFFSET, springConfig);
       } else {
@@ -85,7 +94,9 @@ export default function Task({ task, onPress, onConfirm, onDelete, onComplete }:
       <Animated.View
         style={[animatedStyles]}
         className="box-border h-[92px] w-full rounded-lg border-[0.5px] border-border-main-1 bg-darker-main-1 shadow-[0_4px_4px_rgba(0,0,0,0.25)]">
-        <Text className="text-light-main-1">Offset: {currentOffset.toFixed(0)}</Text>
+        <Text className="text-light-main-1">
+          Offset: {currentOffset.toFixed(0)}, uuid: {task.uuid}
+        </Text>
       </Animated.View>
     </GestureDetector>
   );

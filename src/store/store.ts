@@ -1,10 +1,7 @@
+import 'react-native-get-random-values';
+import { v4 as uuidv4 } from 'uuid';
 import { create } from "zustand";
-
-type CounterStore = {
-    count: number;
-    increment: () => void;
-    decrement: () => void;
-}
+import { CounterStore, TaskStore, AddTaskTypes, TaskTypes } from "~/types/Tasks";
 
 export const useCounterStore = create<CounterStore>((set) => ({
     count: 0,
@@ -12,6 +9,20 @@ export const useCounterStore = create<CounterStore>((set) => ({
     decrement: () => set((state) => ({ count: state.count - 1 })),
 }));
 
-type TaskStore = {
-    
-}
+export const useTaskStore = create<TaskStore>((set) => ({
+    tasks: [],
+    add: (task: AddTaskTypes) => set((state) => ({
+        tasks: [
+            ...state.tasks,
+            {
+                ...task,
+                completitions: 0,
+                isDone: false,
+                uuid: uuidv4(),
+            } as TaskTypes,
+        ],
+    })),
+    delete: (uuid: string) => set((state) => ({
+        tasks: state.tasks.filter((task) => task.uuid !== uuid),
+      })),
+}));

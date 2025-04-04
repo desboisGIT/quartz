@@ -21,18 +21,14 @@ venv
 ios
 android
 
-# macOS
 .DS_Store
 
-# Temporary files created by Metro to check the health of the file watcher
 .metro-health-check*
 
 
-# Node & Bun
 node_modules/
 bun.lockb
 
-# React Native
 android/
 ios/
 build/
@@ -40,17 +36,13 @@ dist/
 .expo/
 .expo-shared/
 
-# Logs & OS files
 *.log
 *.tmp
 .DS_Store
 
-# TypeScript
 *.tsbuildinfo
 
-# Env & secrets
 .env
 .env.*.local
 
-# VSCode
 .vscode/

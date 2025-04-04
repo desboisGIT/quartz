@@ -21,9 +21,10 @@ module.exports = function (api) {
           ],
           root: ['.'],
           alias: {
-            '@icons': './components/icons',
-            '@components': './components',
-            '@screens': './screens',
+            '@icons': './src/components/icons',
+            '@components': './src/components',
+            '@screens': './src/screens',
+            '@store': './src/store',
           },
         },
       ],

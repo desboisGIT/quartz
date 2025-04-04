@@ -1,13 +1,35 @@
-import { Text, StyleSheet } from 'react-native';
+import { Text, StyleSheet, View, Button } from 'react-native';
 import { LinearGradient } from 'expo-linear-gradient';
+import CustomSafeArea from '@components/utils/CustomSafeArea';
+import { useTaskStore } from '@store/store';
 
 export default function StatsScreen() {
+  const tasks = useTaskStore((state) => state.tasks);
+  const addTask = useTaskStore((state) => state.add);
+  const linearGradientProps = {
+    colors: ['#323232', '#212121'] as [string, string, ...string[]],
+    locations: [0.1, 1] as const,
+    style: styles.gradient,
+  };
+
+  const exempleTask = {};
+
   return (
-    <LinearGradient
-      colors={['#2D2D2D', '#272727', '#212121']}
-      locations={[0, 0.3, 1]}
-      style={styles.gradient}>
-      <Text style={styles.text}>Stats</Text>
+    <LinearGradient {...linearGradientProps}>
+      <CustomSafeArea>
+        <View className="h-full w-full px-[12px] py-[24px]">
+          <Text className="text-light-main-1">Your tasks</Text>
+          {tasks && tasks.length > 0 ? (
+            tasks.map((task) => <Text key={task.uuid}>{task.title}</Text>)
+          ) : (
+            <Text>No tasks available</Text>
+          )}
+          <Button
+            title="Add"
+            onPress={() => addTask({ title: 'hello', discipline: 5.2, consistency: 10 })}
+          />
+        </View>
+      </CustomSafeArea>
     </LinearGradient>
   );
 }
@@ -15,11 +37,14 @@ export default function StatsScreen() {
 const styles = StyleSheet.create({
   gradient: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  text: {
-    color: '#F5F5F7',
-    fontSize: 18,
   },
 });
+
+/*
+Task exemple:
+    title: string;
+    discipline: number;
+    consistency: number;
+    completitions: number;
+    isDone: boolean;
+*/
