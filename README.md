@@ -15,6 +15,10 @@ All contributions are reviewed manually, and **I reserve the right to reject any
 
 ## 2.1 - Project Initialization
 
+## Package Manager
+
+This project uses **[Bun](https://bun.sh/)** as its package manager.
+
 ```
 git clone https://github.com/desboisGIT/quartz/
 cd quartz
