@@ -1,5 +1,5 @@
-Quartz License v1.1  
-Copyright (c) 2025 CHAILLOU ROBIN
+# Quartz License v1.1  
+## Copyright © 2025 CHAILLOU ROBIN
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the “Software”), to view, use, and modify the Software for **personal, educational, or non-commercial purposes**, subject to the following conditions:
 
